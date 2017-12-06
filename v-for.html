@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to Vue</title>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+  <div id="input">
+    <input type="text" v-model="name" v-bind:value="name">
+    <input type="text" v-model="phone" v-bind:value="phone">
+    <button v-on:click="insert">insert</button>
+  </div>
+  <div id="h2">
+    <table>
+        <thead>
+        <tr>
+            <th>index</th>
+            <th>name</th>
+            <th>phone</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="(list, index) in lists">
+            <td>{{ index }}</td>
+            <td>{{ list.name }}</td>
+            <td>{{ list.phone }}</td>
+        </tr>
+        </tbody>
+    </table>
+  </div>
+  <script>
+    let model = {
+        name: '',
+        phone: '',
+        lists: [
+            { name: "hong", phone: "010-7979-8989" },
+            { name: "kim", phone: "010-8787-2323" },
+            { name: "jong", phone: "010-6969-2929" }
+        ]
+    }
+    let input = new Vue({
+        el: '#input',
+        data: model,
+        methods: {
+            insert: function() {
+                model.lists.push({
+                    name: model.name,
+                    phone: model.phone
+                })
+                model.name = '';
+                model.phone = '';
+            }
+        }
+    })
+    let h2 = new Vue({
+        el: '#h2',
+        data: model,
+    })
+  </script>
+</body>
+</html>
