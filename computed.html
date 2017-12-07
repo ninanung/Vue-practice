@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to Vue</title>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+    <div id="input">
+        <input type="text" v-model="countryname"/>
+    </div>
+    <div id="list">
+        <table>
+            <thead>
+                <tr>
+                    <th>no</th>
+                    <th>name</th>
+                    <th>region</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="list in filtered">
+                    <td>{{ list.no }}</td>
+                    <td>{{ list.name }}</td>
+                    <td>{{ list.region }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        let model = {
+            countryname: "",
+            lists: [
+                { no: 1, name: "korea", region: "asia" },
+                { no: 2, name: "america", region: "north-america" },
+                { no: 3, name: "france", region: "middle-europe" },
+                { no: 4, name: "congo", region: "africa" }
+            ]
+        }
+        let input = new Vue({
+            el: '#input',
+            data: model
+        })
+        let output = new Vue({
+            el: '#list',
+            data: model,
+            computed: {
+                filtered: function() {
+                    let cname = this.countryname.trim();
+                    return this.lists.filter(function(item, index) {
+                        if(item.name.indexOf(cname) > -1) {
+                            return true;
+                        }
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+</html>
