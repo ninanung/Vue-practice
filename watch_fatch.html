@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to Vue</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-promise/4.1.1/es6-promise.auto.min.js"></script>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+    <div id="example">
+        <p>name : <input type="text" v-model="name"/></p>
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        number
+                    </th>
+                    <th>
+                        name
+                    </th>
+                    <th>
+                        phone
+                    </th>
+                    <th>
+                        address
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="contact in contactlist">
+                    <td>
+                        {{ contact.no }}
+                    </td>
+                    <td>
+                        {{ contact.name }}
+                    </td>
+                    <td>
+                        {{ contact.tel }}
+                    </td>
+                    <td>
+                        {{ contact.address }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div v-show="isProcessing === true">Scaning</div>
+    </div>
+    <script>
+        let vm = new Vue({
+            el: "#example",
+            data: {
+                name: "",
+                isProcessing: false,
+                contactlist: []
+            },
+            watch: {
+                name: function(v) {
+                    if(v.length >= 2) {
+                        this.fetchContacts();
+                    }
+                    else {
+                        this.contactlist = [];
+                    }
+                }
+            },
+            methods: {
+                fetchContacts: _.debounce(function() {
+                    this.contactlist = [];
+                    this.isProcessing = true;
+                    const url = "http://sample.bmaster.kro.kr/contacts_long/search/" + this.name;
+                    let vm = this;
+                    fetch(url).then(function(res) {
+                        return res.json();
+                    }).then(function(json) {
+                        vm.contactlist = json;
+                        vm.isProcessing = false;
+                    }).catch(function(ex) {
+                        console.log("parsing failed", ex);
+                        vm.contactlist = [];
+                        vm.isProcessing = false;
+                    })
+                }, 300)
+            }
+        })
+    </script>
+</body>
+</html>

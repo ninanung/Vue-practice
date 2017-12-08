@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to Vue</title>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+    <div id="input">
+        x: <input type="text" v-model="x"/>
+        y: <input type="text" v-model="y"/>
+        sum = {{ sum }}
+    </div>
+    <script>
+        let sum =  new Vue({
+            el: "#input",
+            data: {
+                x: 0,
+                y: 0,
+                sum: 0
+            },
+            watch: {
+                x: function(v) {
+                    console.log("x change");
+                    let result = Number(v) + Number(this.y);
+                    if(isNaN(result)) {
+                        this.sum = 0;
+                    }
+                    else {
+                        this.sum = result;
+                    }
+                },
+                y: function(v) {
+                    console.log("y change");
+                    this.y = v;
+                    let result = Number(this.x) + Number(v);
+                    if(isNaN(result)) {
+                        this.sum = 0;
+                    }
+                    else {
+                        this.sum = result;
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>
