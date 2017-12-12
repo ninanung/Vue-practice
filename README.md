@@ -8,4 +8,6 @@ watch.html
 watch-fetch.html : Using watch property to make some table. In watch_fetch, use fetch to read json from server.  
 !!Notice!! - 'watch' don't need to return, 'computed' need to return.  
 
-I got a cold, so can't update this.
+v-on.html : Using v-on to control event. When click -> v-on:click or just @click.  
+preventDefault.html : Learn how to control event more in detail. In 'a'tag, there's default click event and preventDefault() will block that.  
+!!Notice!! - Not only preventDefault(), there's many other details. stopPropagation() will stop event propagation. Even use like this, @click.once.self.prevent.stop="mehodName"   
