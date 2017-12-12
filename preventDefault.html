@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to Vue</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+    <div id="nono" @contextmenu="nocontext">
+        <a @click="nolink" href="https://nodvel.herokuapp.com">Nodvel!!!!!</a>
+    </div>
+    <script>
+        let nono = new Vue({
+            el: "#nono",
+            methods: {
+                nocontext: function(e) {
+                    e.preventDefault();
+                },
+                nolink: function(e) {
+                    if(!confirm("go to nodvel?")) {
+                        e.preventDefault();
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

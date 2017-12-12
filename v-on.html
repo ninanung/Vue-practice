@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to Vue</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+    <div id="click">
+        <input v-model="money" type="text"/>
+        <button v-on:click="moneyin">money in</button>
+        <button v-on:click="moneyout">money out</button>
+        <h2>{{ remain }}</h2>        
+    </div>
+    <script>
+        let money = new Vue({
+            el: "#click",
+            data: {
+                money: 0,
+                remain: 0,
+            },
+            methods: {
+                moneyin: function(e) {
+                    return this.remain = this.remain + parseInt(this.money);
+                },
+                moneyout: function(e) {
+                    return this.remain = this.remain - parseInt(this.money);
+                }
+            }
+        })
+    </script>
+</body>
+</html>
