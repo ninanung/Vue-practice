@@ -12,3 +12,7 @@ v-on.html : Using v-on to control event. When click -> v-on:click or just @click
 preventDefault.html : Learn how to control event more in detail. In 'a'tag, there's default click event and preventDefault() will block that.  
 !!Notice!! - Not only preventDefault(), there's many other details. stopPropagation() will stop event propagation. Even use like this, @click.once.self.prevent.stop="mehodName"   
 !!Notice!! - Using with v-on:keyup : .enter, .tab, .delete, .esc, .space, .up, .down, .ctrl, .alt, .shift, .meta and .(keycode number)  
+
+inLineStyle.html : Inline style in Vue, make change with method.  
+class.html : Change style by v-bind:class. In Vue obj, setting style using checkbox.  
+styleExample.html : Make Todo List! with everything i got.  
