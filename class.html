@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to Vue</title>
+    <script src="https://unpkg.com/vue"></script>
+    <style>
+        .set1 {
+            background-color: red;            
+        }
+        .set2 {
+            width: 100px;
+        }
+        .set3 {
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="class">
+        <button v-bind:class="setClass">class test</button>
+        <input type="checkbox" v-model="setClass.set1"/>
+        <input type="checkbox" v-model="setClass.set2"/>
+        <input type="checkbox" v-model="setClass.set3"/>
+    </div>
+    <script>
+        let classTest = new Vue({
+            el: "#class",
+            data: {
+                setClass: {
+                    set1: false,
+                    set2: false,
+                    set3: false
+                }
+            }
+        })
+    </script>
+</body>
+</html>

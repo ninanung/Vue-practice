@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to Vue</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+    <div id="style">
+        <button v-bind:style="style1" @mouseover="style2" @mouseout="style3">style change!</button>
+    </div>
+    <script>
+        let style = new Vue({
+            el: "#style",
+            data: {
+                style1: {
+                    backgroundColor: "aqua",
+                    width: "100px",
+                    height: "100px"
+                }
+            },
+            methods: {
+                style2: function(e) {
+                    this.style1.backgroundColor = "red";
+                    this.style1.width = "200px";
+                    this.style1.height = "200px";
+                },
+                style3: function(e) {
+                    this.style1.backgroundColor = "blue";
+                    this.style1.width = "300px";
+                    this.style1.height = "300px";
+                }
+            }
+        })
+    </script>
+</body>
+</html>
