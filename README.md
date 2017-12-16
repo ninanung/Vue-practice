@@ -16,4 +16,4 @@ preventDefault.html : Learn how to control event more in detail. In 'a'tag, ther
 inLineStyle.html : Inline style in Vue, make change with method.  
 class.html : Change style by v-bind:class. In Vue obj, setting style using checkbox.  
 styleExample.html : Make Todo List! with everything i got.  
-!!Notice!! - v-model.trim="something" make delete whitespace.  
+!!Notice!! - v-model.trim="something" delete whitespace.  
