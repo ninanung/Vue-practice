@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to Vue</title>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<style>
+    #list {
+        width: 400px;
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    #list td, #list th {
+        border: 1px solid black;
+        text-align: center;
+    }
+    #list > thead > tr {
+        color: yellow;
+        background-color: purple;
+    }
+</style>
+<template id="listTemplate">
+    <div>
+        <table id="list">
+            <thead>
+                <tr>
+                    <th>count</th><th>name</th><th>phone-number</th><th>address</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="contact in contacts">
+                    <td>{{ contact.no }}</td>
+                    <td>{{ contact.name }}</td>
+                    <td>{{ contact.tel }}</td>
+                    <td>{{ contact.address }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</template>
+<script>
+    Vue.component("contactlist-component", {
+        template: "#listTemplate",
+        props: [ "contacts" ]
+    });
+</script>
+<body>
+    <div id="app">
+        <h1>inject list</h1>
+        <hr/>
+        <h3>1st list</h3>
+        <contactlist-component :contacts="list1"></contactlist-component>
+        <h3>2nd list</h3>
+        <contactlist-component :contacts="list2"></contactlist-component>
+    </div>
+</body>
+<script>
+    Vue.config.devtools = true;
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            list1: [
+                { no: 97, name: "kalisa rogers", tel: "010-3456-8296", address: "seoul" },
+                { no: 96, name: "xin yao", tel: "010-7878-9872", address: "seoul" },
+                { no: 95, name: "kali lenux", tel: "010-3246-2296", address: "seoul" }
+            ],
+            list2: [
+                { no: 97, name: "kim jeung en", tel: "010-3456-8296", address: "seoul" },
+                { no: 96, name: "jim sniper", tel: "010-7878-9872", address: "seoul" },
+                { no: 95, name: "oasis good", tel: "010-3246-2296", address: "seoul" }
+            ]
+        }
+    })
+</script>
+</html>
