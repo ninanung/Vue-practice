@@ -17,3 +17,7 @@ inLineStyle.html : Inline style in Vue, make change with method.
 class.html : Change style by v-bind:class. In Vue obj, setting style using checkbox.  
 styleExample.html : Make Todo List! with everything i got.  
 !!Notice!! - v-model.trim="something" delete whitespace.  
+
+props.html : Practice how to toss props from parent component.  
+propsAndAction.html : Practice using props and action in child, parent component. Using fetch for data.  
+ 
