@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to Vue</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-promise/4.1.1/es6-promise.auto.min.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+
+    <style>
+        #list {
+            width: 400px;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        #list td, #list th {
+            border: 1px solid black;
+            text-align: center;
+        }
+        #list > thead > tr {
+            color: yellow;
+            background-color: purple;
+        }
+    </style>
+</head>
+<template id="listTemplate">
+    <div>
+        <table id="list">
+            <thead>
+                <tr>
+                    <th>number</th><th>name</th><th>phone</th><th>address</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="contact in contacts">
+                    <td>
+                        {{ contact.no }}
+                    </td>
+                    <td>
+                        {{ contact.name }}
+                    </td>
+                    <td>
+                        {{ contact.tel }}
+                    </td>
+                    <td>
+                        {{ contact.address }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</template>
+<script>
+    Vue.component("contactlist-component", {
+        template: "#listTemplate",
+        props: [ "contacts" ]
+    });
+</script>
+<template id="searchTemplate">
+    <div>
+        searching : <input type="text" v-model.trim="name" @keyup.enter="keyupEvent"/>
+    </div>
+</template>
+<script>
+    Vue.component("searchlist-component", {
+        template: "#searchTemplate",
+        data: function() {
+            return { name: "" };
+        },
+        methods: {
+            keyupEvent: function(e) {
+                let val = e.target.value;
+                if(val.length >= 2) {
+                    this.$emit("search", val);
+                }
+                else {
+                    this.$emit("search", "");
+                }
+            }
+        }
+    });
+</script>
+<template id="searchcontactTemplate">
+    <div>
+        <searchlist-component v-on:search="searchEvent"></searchlist-component>
+        <contactlist-component v-bind:contacts="contactlist"></contactlist-component>
+    </div>
+</template>
+<script>
+    Vue.component("searchandcontactlist-component", {
+        template: "#searchcontactTemplate",
+        data: function() {
+            return {
+                contactlist: [],
+                isProcessing: false
+            };
+        },
+        methods: {
+            searchEvent: function(name) {
+                if(name == "") {
+                    this.contactlist = [];
+                }
+                else {
+                    this.fetchContacts(name);
+                }
+            },
+            fetchContacts: _.debounce(function(name) {
+                this.contactlist = [];
+                this.isProcessing = true;
+                let url = "http://sample.bmaster.kro.kr/contacts_long/search/" + name;
+                let vm = this;
+                fetch(url).then(function(res) {
+                    return res.json();
+                }).then(function(json) {
+                    vm.contactlist = json;
+                    vm.isProcessing = false;
+                }).catch(function(ex) {
+                    console.log("parsing failed", ex);
+                    vm.contactlist = [];
+                    vm.isProcessing = false;
+                })
+            }, 300)
+        }
+    });
+</script>
+<body>
+    <div id="app">
+        <searchandcontactlist-component></searchandcontactlist-component>
+    </div>
+    <script>
+        Vue.config.devtools = true;
+        let vm2 = new Vue({
+            el: "#app"
+        })
+    </script>
+</body>
+</html>
