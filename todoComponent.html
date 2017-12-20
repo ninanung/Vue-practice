@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to Vue</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://unpkg.com/vue"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+        ul li {
+            cursor: pointer;
+            position: relative;
+            padding: 8px 8px 8px 40px;
+            background: #eee;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+        ul li:hover {
+            background: #ddd;
+        }
+        ul li.checked {
+            background: #BBB;
+            color: #fff;
+            text-decoration: line-through;
+        }
+        ul li.checked::before {
+            content: " ";
+            position: absolute;
+            border-color: #fff;
+            border-style: solid;
+            border-width: 0px 1px 1px 0px;
+            top: 10px; left: 16px;
+            transform: rotate(45deg);
+            height: 8px; width: 8px;
+        }
+        .close {
+            position: absolute;
+            right: 0; top: 0;
+            padding: 12px 16px 12px 16px;
+        }
+        .close:hover {
+            background-color: #f44336;
+            color: white;
+        }
+        .header {
+            background-color: purple;
+            padding: 30px 30px;
+            color: yellow;
+            text-align: center;
+        }
+        .header:after {
+            content: " ";
+            display: table;
+            clear: both;
+        }
+        .input {
+            border: none; width: 75%; height: 35px;
+            background-color: #d9d9d9; color: #555;
+            float: left;
+            text-align: center;
+            font-size: 13px; cursor: pointer;
+            transition: 0.3s;
+        }
+        .addbutton {
+            padding: 10px; width: 25%;
+            height: 35px; background: #d9d9d9;
+            color: #555; float: left;
+            text-align: center;
+            font-size: 13px; cursor: pointer;
+            transition: 0.3s;
+        }
+        .addbutton:hover {
+            background-color: #bbb;
+        }
+        .completed {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<script>
+    let bus = new Vue();
+</script>
+
+<template id="list-template">
+    <ul id="todolist">
+        <li v-for="(a, index) in todolist" v-bind:class="checked(a.done)" v-on:click="doneToggle(index)">
+            <span>{{ a.todo }}</span>
+            <span v-if="a.done"></span>
+            <span class="close" v-on:click.stop="deleteTodo(index)">&#x00D7;</span>
+        </li>
+    </ul>
+</template>
+<script>
+    Vue.component("list", {
+        template: "#list-template",
+        data: function() {
+            return {
+                todolist: [
+                    { todo: "watching TV", done: false },
+                    { todo: "walking with mungje", done: false },
+                    { todo: "studing Vue", done: false }
+                ]
+            }
+        },
+        created: function() {
+            bus.$on("add-todo", this.addTodo);
+        },
+        methods: {
+            checked: function(done) {
+                if(done) return { checked: true };
+                else return { checked: false };
+            },
+            addTodo: function(todo) {
+                if(todo !== "") {
+                    this.todolist.push({
+                        todo: todo,
+                        done: false
+                    });
+                }
+            },
+            doneToggle: function(index) {
+                this.todolist[index].done = !this.todolist[index].done;
+            },
+            deleteTodo: function(index) {
+                this.todolist.splice(index, 1);
+            }
+        }
+    });
+</script>
+
+<template id="input-template">
+    <div>
+        <input class="input" @keyup.enter="addTodo" id="task" v-model.trim="todo" type="text"/>
+        <span class="addbutton" @click="addTodo">Add</span>
+    </div>
+</template>
+<script>
+    Vue.component("input-list", {
+        template: "#input-template",
+        data: function() {
+            return { todo: "" };
+        },
+        methods: {
+            addTodo: function() {
+                bus.$emit("add-todo", this.todo);
+                this.todo = "";
+            }
+        }
+    });
+</script>
+
+<body>
+    <div id="app">
+        <div id="header" class="header">
+            <h2>Todo List App</h2>
+            <input-list></input-list>
+        </div>
+        <list></list>
+    </div>
+    <script>
+        Vue.config.devtools = true;
+        let todo = new Vue({
+            el: "#app"
+        });
+    </script>
+</body>
+</html>
