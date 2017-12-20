@@ -20,4 +20,5 @@ styleExample.html : Make Todo List! with everything i got.
 
 props.html : Practice how to toss props from parent component.  
 propsAndAction.html : Practice using props and action in child, parent component. Using fetch for data.  
- 
+todoComponent.html : Doing same function like "styleExample.html" but made by Vue component. To make "component to component communication", use '$emit' and '$on'.
+!!Notice!! - While coding todolist, i find out that i forgot 'v-bind:class="createdMethod()"'form can control class. It could be usful, so don't forget.  
