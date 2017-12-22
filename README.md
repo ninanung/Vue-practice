@@ -1,5 +1,5 @@
 # Simple package made by vue-cli  
-## For study.  
+## HTML form practice  
 
 __v-model.html :__ Write input(text) and h2 tag, when write in input tag, it change h2 same as input value.  
 __v-for.html :__ Using v-bind, v-model, v-for, make simple phone book. Can insert new info.  
@@ -22,4 +22,7 @@ __props.html :__ Practice how to toss props from parent component.
 __propsAndAction.html :__ Practice using props and action in child, parent component. Using fetch for data.  
 __todoComponent.html :__ Doing same function like "styleExample.html" but made by Vue component. To make "component to component communication", use '$emit' and '$on'.
 _!!Notice!!_ - While coding todolist, i find out that i forgot 'v-bind:class="createdMethod()"'form can control class. It could be usful, so don't forget.  
-__webpacktext :__ Test file for webpack and package config. Practice how to set webpack and packages.  
+
+## Webpack project form practice  
+__webpacktest :__ Test file for webpack and package config. Practice how to set webpack and packages.  
+__webpacktest2 :__ Made by 'vue-cli'module with 'webpack-simple'package for webpack and vue practice.  Just project file, no contents.  
