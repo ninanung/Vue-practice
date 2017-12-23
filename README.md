@@ -20,9 +20,12 @@ _!!Notice!!_ - v-model.trim="something" delete whitespace.
 
 __props.html :__ Practice how to toss props from parent component.  
 __propsAndAction.html :__ Practice using props and action in child, parent component. Using fetch for data.  
-__todoComponent.html :__ Doing same function like "styleExample.html" but made by Vue component. To make "component to component communication", use '$emit' and '$on'.
+__todoComponent.html :__ Doing same function with "styleExample.html" but made by Vue component. To make "component to component communication", use '$emit' and '$on'.
 _!!Notice!!_ - While coding todolist, i find out that i forgot 'v-bind:class="createdMethod()"'form can control class. It could be usful, so don't forget.  
 
 ## Webpack project form practice  
 __webpacktest :__ Test file for webpack and package config. Practice how to set webpack and packages.  
 __webpacktest2 :__ Made by 'vue-cli'module with 'webpack-simple'package for webpack and vue practice.  Just project file, no contents.  
+__component-example :__ Doing same function with "styleExample.html" and "todoComponent.html" but made by single file component.  
+_!!Noice!!_ - If each component have same class name, just one style will applied. For prevent this, can use style tag like "<style scoped></style>". But if component have child component, scoped style affect to child. Remember this.  
+_!!Notice!!_ - Also, can write style as a module like "<style module></style>", even can use like this "v-bind:class="$style.className"".  
