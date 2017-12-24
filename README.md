@@ -31,4 +31,6 @@ _!!Noice!!_ - If each component have same class name, just one style will applie
 _!!Notice!!_ - Also, can write style as a module like "<style module></style>", even can use like this "v-bind:class="$style.className"".  
 __slottest :__ Practice for slot. Learn how to set slot in parent component.  
 __scopedslottest :__ Set v-bind:name="dataName" in child component slot, and parent component use scope="name" in slot. Can make control child's slot like "{{ name.dataName }}" in parent's slot.  
+ __dynamic-componenttest :__ Use "<component :is="currentView"></component>" can show component that you want. "currentView" must be imported component's name. In this test, i make method to change components.  
+ _!!Notice!!_ - In dynamic component, if component have name, can use <keep-alive include="component-name, other-component-name"></keep-alive> to set components.  
  
