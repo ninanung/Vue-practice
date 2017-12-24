@@ -29,3 +29,6 @@ __webpacktest2 :__ Made by 'vue-cli'module with 'webpack-simple'package for webp
 __component-example :__ Doing same function with "styleExample.html" and "todoComponent.html" but made by single file component.  
 _!!Noice!!_ - If each component have same class name, just one style will applied. For prevent this, can use style tag like "<style scoped></style>". But if component have child component, scoped style affect to child. Remember this.  
 _!!Notice!!_ - Also, can write style as a module like "<style module></style>", even can use like this "v-bind:class="$style.className"".  
+__slottest :__ Practice for slot. Learn how to set slot in parent component.  
+__scopedslottest :__ Set v-bind:name="dataName" in child component slot, and parent component use scope="name" in slot. Can make control child's slot like "{{ name.dataName }}" in parent's slot.  
+ 
