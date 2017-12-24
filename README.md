@@ -33,4 +33,6 @@ __slottest :__ Practice for slot. Learn how to set slot in parent component.
 __scopedslottest :__ Set v-bind:name="dataName" in child component slot, and parent component use scope="name" in slot. Can make control child's slot like "{{ name.dataName }}" in parent's slot.  
  __dynamic-componenttest :__ Use "<component :is="currentView"></component>" can show component that you want. "currentView" must be imported component's name. In this test, i make method to change components.  
  _!!Notice!!_ - In dynamic component, if component have name, can use <keep-alive include="component-name, other-component-name"></keep-alive> to set components.  
+ __recursive-componenttest :__ Like this file name, in child component's template, recursively call there own component. In parent component, give props to child as "array[ array[] ]" mean array in array form.  
+ _!!Notice!!_ - For recursive component, you must set component name like dynamic component. Remember this!  
  
