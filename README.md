@@ -35,4 +35,6 @@ __scopedslottest :__ Set v-bind:name="dataName" in child component slot, and par
  _!!Notice!!_ - In dynamic component, if component have name, can use <keep-alive include="component-name, other-component-name"></keep-alive> to set components.  
  __recursive-componenttest :__ Like this file name, in child component's template, recursively call there own component. In parent component, give props to child as "array[ array[] ]" mean array in array form.  
  _!!Notice!!_ - For recursive component, you must set component name like dynamic component. Remember this!  
- 
+__axiostest :__ Made by webpack project and Axios api connecter. Practice to get, post, put(update), delete data from server using axios module. Set address for api in proxyTable part from /config/index.js file.  
+_!!Notice!!_ - To use axios, install axios, import axios. In vue file, GET is "axios.get("/api/address/").then((res) => {}).catch((ex) => {})"form, can use params after address if you need. POST is "axios.post("/api/address", {data obj form}).(same with get)"form. Api address must be set in config file. PUT and DELETE is same form POST and GET. Study hard plz!  
+   
