@@ -50,3 +50,5 @@ __scopedslottest :__ Set v-bind:name="dataName" in child component slot, and par
 __axiostest :__ Made by webpack project and Axios api connecter. Practice to get, post, put(update), delete data from server using axios module. Set address for api in proxyTable part from /config/index.js file.  
 
 _!!Notice!!_ - To use axios, install axios, import axios. In vue file, GET is "axios.get("/api/address/").then((res) => {}).catch((ex) => {})"form, can use params after address if you need. POST is "axios.post("/api/address", {data obj form}).(same with get)"form. Api address must be set in config file. PUT and DELETE is same form POST and GET. Study hard plz!  
+
+__axiosAddressBoot :__ Phone address book using api. Dynamic component, event bus, and axios are main. Using all vue skill what i got.   
