@@ -33,7 +33,7 @@
 
     export default {
         name: 'app',
-        component: { ContactList, AddContact, UpdateContact, UpdatePhoto, Paginate },
+        components: { ContactList, AddContact, UpdateContact, UpdatePhoto, Paginate },
         data: function() {
             return {
                 currentView: null,
@@ -57,14 +57,14 @@
             eventBus.$on("addContactForm", () => {
                 this.currentView = "addContact";
             });
-            eventBus.$on("editContactForm", () => {
+            eventBus.$on("editContactForm", (no) => {
                 this.fetchContactOne(no);
                 this.currentView = "updateContact";
             });
             eventBus.$on("deleteContact", (no) => {
                 this.deleteContact(no);
             });
-            eventBus.$on("editPhoto", () => {
+            eventBus.$on("editPhoto", (no) => {
                 this.fetchContactOne(no);
                 this.currentView = "updatePhoto";
             });

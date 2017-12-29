@@ -21,7 +21,7 @@
             <div class="form-group">
                 <label>&nbsp;</label>
                 <input type="button" class="button btn btn-primary" :value="btnText" @click="submitEvent()" />
-                <input type="button" class="button btn btn-primary" :value="Cancel" @click="cancelEvent()" />
+                <input type="button" class="button btn btn-primary" value="Cancel" @click="cancelEvent()" />
             </div>
         </div>
     </div>
@@ -51,7 +51,7 @@
         mounted: function() {
             this.$refs.name.focus();
         },
-        compoted: {
+        computed: {
             btnText: function() {
                 if(this.mode != "update") {
                     return "Add";

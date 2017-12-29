@@ -3,7 +3,7 @@
         <div class="form" @keyup.esc="cancelEvent()">
             <form method="post" enctype="multipart-form-data">
                 <h3>:: Edit Photo</h3>
-                <input type="hidden" name="no" class="long" disabled v-model="contact.no"; />
+                <input type="hidden" name="no" class="long" disabled v-model="contact.no" />
                 <div>
                     <label>Now</label>
                     <img class="thumb" :src="contact.photo" />
@@ -32,7 +32,7 @@
         props: [ "contact" ],
         methods: {
             cancelEvent: function() {
-                eventBue.$emit("cancel");
+                eventBus.$emit("cancel");
             },
             photoSubmit: function() {
                 let file = this.$refs.photofile.files[0];
