@@ -54,3 +54,6 @@ _!!Notice!!_ - To use axios, install axios, import axios. In vue file, GET is "a
 __axiosAddressBoot :__ Phone address book using api. Dynamic component, event bus, and axios are main. Using all vue skill what i got. Structure is not that complicate but CSS is pretty hard. I think i should study more CSS.
 
 _!!Notice!!_ -  I use modal form first time, kind of popup page. In CSS, make modal page width 100%, height 100% and z-index 1(top layer anyway). Make other part dark but opacity is not 1. Funny form and i think i can use this anytime i need. So remember this!  
+
+__vuex-todo :__ Vuex practice to make todolist. I think Vuex is similar with EventBus but don't use $emit or $on and method. Just install vuex, make store and import store in main.js file. It is ready! Can use store in any component by "this.$store".  
+__list-lodash.vue :__ This file has same content with vuex-todo's "List.vue" file but using "lodash" to make vuex easy. I can't explain how to code, just read one more this file and book.   
