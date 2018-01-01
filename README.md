@@ -56,4 +56,6 @@ __axiosAddressBoot :__ Phone address book using api. Dynamic component, event bu
 _!!Notice!!_ -  I use modal form first time, kind of popup page. In CSS, make modal page width 100%, height 100% and z-index 1(top layer anyway). Make other part dark but opacity is not 1. Funny form and i think i can use this anytime i need. So remember this!  
 
 __vuex-todo :__ Vuex practice to make todolist. I think Vuex is similar with EventBus but don't use $emit or $on and method. Just install vuex, make store and import store in main.js file. It is ready! Can use store in any component by "this.$store".  
-__list-lodash.vue :__ This file has same content with vuex-todo's "List.vue" file but using "lodash" to make vuex easy. I can't explain how to code, just read one more this file and book.   
+__list-lodash.vue :__ This file has same content with vuex-todo's component "List.vue" file but using "lodash" to make vuex easy. I can't explain how to code, just read one more this file and book.   
+
+_!!Notice!!_ - For using vuex, must import vuex and write some code in main.js file. For using lodash, must import vuex object and lodash, funny thing is, import lodash as "_". Yeah it is low dash, remember.  
