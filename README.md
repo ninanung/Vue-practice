@@ -59,3 +59,6 @@ __vuex-todo :__ Vuex practice to make todolist. I think Vuex is similar with Eve
 __list-lodash.vue :__ This file has same content with vuex-todo's component "List.vue" file but using "lodash" to make vuex easy. I can't explain how to code, just read one more this file and book.   
 
 _!!Notice!!_ - For using vuex, must import vuex and write some code in main.js file. For using lodash, must import vuex object and lodash. _.extend({}) is used in list-lodash.vue, this method combine objects to one.   
+__vuex-getter :__ Like this project's name, i use 'getter' of vuex. It is kind of computed object or DB's getter. Yeah, it is getter as you can see this name. You don't need to use getter, use when you need to. In vuex, 'mapState' and 'mapgetters' are similar, used in computed same. But getter give some more choice, can change state and move it to component. Please, see one more!  
+
+__vuex-axios :__ I use vuex's 'action' and axios that already studied. 'action' is similar with 'mutation' but 'mutation' do only synchromous job and 'action' is not. Also, 'mutation' make change 'state' but 'action' is not. So best way is, 'action' get payload from component's dispatch and commit to 'mutation' for changing 'state'. This need some practice until be uesd to it.  
