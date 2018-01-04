@@ -58,7 +58,12 @@ _!!Notice!!_ -  I use modal form first time, kind of popup page. In CSS, make mo
 __vuex-todo :__ Vuex practice to make todolist. I think Vuex is similar with EventBus but don't use $emit or $on and method. Just install vuex, make store and import store in main.js file. It is ready! Can use store in any component by "this.$store".  
 __list-lodash.vue :__ This file has same content with vuex-todo's component "List.vue" file but using "lodash" to make vuex easy. I can't explain how to code, just read one more this file and book.   
 
-_!!Notice!!_ - For using vuex, must import vuex and write some code in main.js file. For using lodash, must import vuex object and lodash. _.extend({}) is used in list-lodash.vue, this method combine objects to one.   
+_!!Notice!!_ - For using vuex, must import vuex and write some code in main.js file. For using lodash, must import vuex object and lodash. _.extend({}) is used in list-lodash.vue, this method combine objects to one.  
+
 __vuex-getter :__ Like this project's name, i use 'getter' of vuex. It is kind of computed object or DB's getter. Yeah, it is getter as you can see this name. You don't need to use getter, use when you need to. In vuex, 'mapState' and 'mapgetters' are similar, used in computed same. But getter give some more choice, can change state and move it to component. Please, see one more!  
 
 __vuex-axios :__ I use vuex's 'action' and axios that already studied. 'action' is similar with 'mutation' but 'mutation' do only synchromous job and 'action' is not. Also, 'mutation' make change 'state' but 'action' is not. So best way is, 'action' get payload from component's dispatch and commit to 'mutation' for changing 'state'. This need some practice until be uesd to it.  
+
+__store-function :__ How can i make up store? Or make easy to debug? So there's some structure for store. First, function structure is devided form of 'state', 'mutation', 'getter' and 'action' as each file. Easy to imagine.  
+__store-module :__ Second, module structure is devide modules as each file. Each modules have their own 'state', 'mutation', 'action' and etc. That make easy to control store.  
+_!!Notice!!_ - Each folders have any server or vue file. These are just practice files.  
