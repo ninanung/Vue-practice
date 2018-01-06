@@ -7,5 +7,6 @@ export default {
     CANCEL_FORM: "cancelForm",
     EDIT_PHOTO_FORM: "editPhotoForm",
     UPDATE_PHOTO: "updatePhoto",
-    DELETE_CONTACT: "deleteContact"
+    DELETE_CONTACT: "deleteContact",
+    CHANGE_MODE: "changeMode"
 }

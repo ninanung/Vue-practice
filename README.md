@@ -51,7 +51,7 @@ __axiostest :__ Made by webpack project and Axios api connecter. Practice to get
 
 _!!Notice!!_ - To use axios, install axios, import axios. In vue file, GET is "axios.get("/api/address/").then((res) => {}).catch((ex) => {})"form, can use params after address if you need. POST is "axios.post("/api/address", {data obj form}).(same with get)"form. Api address must be set in config file. PUT and DELETE is same form POST and GET. Study hard plz!  
 
-__axiosAddressBoot :__ Phone address book using api. Dynamic component, event bus, and axios are main. Using all vue skill what i got. Structure is not that complicate but CSS is pretty hard. I think i should study more CSS.
+__axiosAddressBook :__ Phone address book using api. Dynamic component, event bus, and axios are main. Using all vue skill what i got. Structure is not that complicate but CSS is pretty hard. I think i should study more CSS.
 
 _!!Notice!!_ -  I use modal form first time, kind of popup page. In CSS, make modal page width 100%, height 100% and z-index 1(top layer anyway). Make other part dark but opacity is not 1. Funny form and i think i can use this anytime i need. So remember this!  
 
