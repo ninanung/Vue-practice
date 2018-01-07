@@ -67,3 +67,6 @@ __vuex-axios :__ I use vuex's 'action' and axios that already studied. 'action' 
 __store-function :__ How can i make up store? Or make easy to debug? So there's some structure for store. First, function structure is devided form of 'state', 'mutation', 'getter' and 'action' as each file. Easy to imagine.  
 __store-module :__ Second, module structure is devide modules as each file. Each modules have their own 'state', 'mutation', 'action' and etc. That make easy to control store.  
 _!!Notice!!_ - Each folders have any server or vue file. These are just practice files.  
+
+__vuex-addressbook :__ Last practice project for Vuex module. Content is same with axiosAddressBook file but not eventbus -> store. So not much to talk about.  
+_!!Notice!!_ - In some components, i use v-model to change store's state directly. But this is not a good code. So first make change component's data and then do to state is right form. To block this, in index.js file's vuex objext write 'strict: true'.  
