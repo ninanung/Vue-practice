@@ -1,5 +1,5 @@
-import config from './config.js';
-import constant from './constant.js';
+import config from '../config.js';
+import constant from '../constant.js';
 import axios from 'axios';
 
 export default {

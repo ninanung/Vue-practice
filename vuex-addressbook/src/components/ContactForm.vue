@@ -33,7 +33,39 @@
     import _ from 'lodash';
 
     export default {
-        
+        name: 'contactForm',
+        computed: _.extend({
+            btnText: function() {
+                if(this.mode != 'update') {
+                    return 'Add';
+                }
+                else return 'Edit';
+            },
+            headingText: function() {
+                if(this.mode != 'update') {
+                    return 'Add New Address';
+                }
+                else return 'Update Address';
+            }
+        }, mapState([
+            'mode', 'contact'
+        ])),
+        mounted: function() {
+            this.$refs.name.focus();
+        },
+        methods: {
+            submitEvent: function() {
+                if(this.mode == 'update') {
+                    this.$store.dispatch(constant.UPDATE_CONTACT);
+                }
+                else {
+                    this.$store.dispatch(constant.ADD_CONTACT);
+                }
+            },
+            cancelEvent: function() {
+                this.$store.dispatch(constant.CANCEL_FORM);
+            }
+        }
     }
 </script>
 

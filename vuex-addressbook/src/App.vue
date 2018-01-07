@@ -26,32 +26,33 @@
     import UpdatePhoto from './components/UpdatePhoto.vue';
     import Paginate from 'vuejs-paginate';
     import config from './config.js';
-    import constant from './contant.js';
+    import constant from './constant.js';
     import _ from 'lodash';
     import { mapState } from 'vuex';
 
     export default {
         name: 'app',
         components: { ContactList, ContactForm, UpdatePhoto, Paginate },
+        computed: _.extend({
+            totalpage: function() {
+              let total = this.contactlist.totalcount;
+              let pagesize = this.contactlist.pagesize;
+              return Math.floor((total - 1) / pagesize) + 1;
+            }
+          }, mapState([
+            'contactlist', 'currentView'
+          ])
+        ),
         mounted: function() {
           this.$store.dispatch(constant.FETCH_CONTACTS);
         },
         methods: {
           pageChanged: function(page) {
-            this.$store.dispathc(contact.FETCH_CONTACTS, { pageno: page });
+            this.$store.dispatch(constant.FETCH_CONTACTS, { pageno: page });
           }
         },
-        computed: _.extend({
-          totalpage: function() {
-            let totalcount = this.contactlist.totalcount;
-            let pagesize = this.contactlist.pagesize;
-            return Math.floor((totalcount - 1) / pagesize) + 1);
-          }
-        }, mapState([
-          'contactlist', 'currentView'
-        ])),
         watch: {
-          'contactlist.pageno': function(page) {
+          'this.contactlist.pageno': function(page) {
             this.$refs.pagebuttons.selected = page - 1;
           }
         }

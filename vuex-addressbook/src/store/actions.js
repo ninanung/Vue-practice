@@ -10,7 +10,7 @@ export default {
         .then((res) => {
             if(res.data.status == "success") {
                 store.dispatch(constant.CANCEL_FORM);
-                store.dispatch(constant.FETCH_CONTACTS, { pagno: 1 })
+                store.dispatch(constant.FETCH_CONTACTS, { pageno: 1 })
             }
             else {
                 console.log("ADD CONTACT ERROR" + res.data);
@@ -21,6 +21,7 @@ export default {
         store.commit(constant.CANCEL_FORM);
     },
     [constant.EDIT_CONTACT_FORM]: (store, payload) => {
+        console.log(payload.no);
         contactapi.fetchContactOne(payload.no)
         .then((res) => {
             store.commit(constant.EDIT_CONTACT_FORM, { contact: res.data });
@@ -52,14 +53,15 @@ export default {
         })
     },
     [constant.FETCH_CONTACTS]: (store, payload) => {
-        let pageno;
-        if(typeof payload == "undefind" || typeof payloadno == "undefind") {
-            pageno = 1;
+        let pageno = 1;
+        if(typeof payload === "undefined" || typeof payload.pageno === "undefined") {
+            console.log(pageno);
         }
         else {
             pageno = payload.pageno;
         }
         const pagesize = store.state.contactlist.pagesize;
+        console.log(pagesize);
         contactapi.fetchContacts(pageno, pagesize)
         .then((res) => {
             store.commit(constant.FETCH_CONTACTS, { contactlist: res.data });
@@ -71,7 +73,7 @@ export default {
     [constant.DELETE_CONTACT]: (store, payload) => {
         contactapi.deleteContact(payload.no)
         .then((res) => {
-            store.commit(constant.FETCH_CONTACTS, { pageno: store.state.contactlist.pageno });
+            store.dispatch(constant.FETCH_CONTACTS, { pageno: store.state.contactlist.pageno });
         })
     },
     [constant.CHANGE_MODE]: (store, payload) => {

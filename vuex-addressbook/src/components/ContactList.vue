@@ -1,7 +1,7 @@
 <template>
     <div>
         <p class="addnew">
-            <button class="btn btn-primary" @click="addContact()">Add New Address</button>
+            <button class="btn btn-primary" @click="addContact">Add New Address</button>
         </p>
         <div id="example">
             <table id="list" class="table table-striped table-bordered table-hover">
@@ -32,7 +32,7 @@
 </template>
 
 <script>
-    import contant from '../contant.js';
+    import constant from '../constant.js';
     import { mapState } from 'vuex';
 
     export default {
@@ -47,7 +47,7 @@
             },
             deleteContact: function(no) {
                 if(confirm("REALLY WANT TO DELETE???????") == true) {
-                    this.$store.dispatch(constant.DELETE_CONTACT), { no: no });
+                    this.$store.dispatch(constant.DELETE_CONTACT, { no: no });
                 }
             },
             editPhoto: function(no) {
