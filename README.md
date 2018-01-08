@@ -70,3 +70,6 @@ _!!Notice!!_ - Each folders have any server or vue file. These are just practice
 
 __vuex-addressbook :__ Last practice project for Vuex module. Content is same with axiosAddressBook file but not eventbus -> store. So not much to talk about.  
 _!!Notice!!_ - In some components, i use v-model to change store's state directly. But this is not a good code. So first make change component's data and then do to state is right form. To block this, in index.js file's vuex objext write 'strict: true'.  
+
+__router-example :__ Vue-router practice webpack-simple project. Same content with dynamic component example but made by vue-router. I think it is similar with react.js router. <router-link> make <a> tag and <router-view> show component.  
+
