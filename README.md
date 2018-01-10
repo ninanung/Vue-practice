@@ -73,3 +73,6 @@ _!!Notice!!_ - In some components, i use v-model to change store's state directl
 
 __router-example :__ Vue-router practice webpack-simple project. Same content with dynamic component example but made by vue-router. I think it is similar with react.js router. <router-link> make <a> tag and <router-view> show component.  
 
+__dynamic-route :__ Practice for dynamic routing. Simple content but should see "this.$route.params.something". This is way to use params, and in route, "route/to/dynamic/:number" use like this.  
+
+__nested-route :__
