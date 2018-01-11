@@ -76,30 +76,34 @@ __router-example :__ Vue-router practice webpack-simple project. Same content wi
 __dynamic-route :__ Practice for dynamic routing. Simple content but should see "this.$route.params.something". This is way to use params, and in route, "route/to/dynamic/:number" use like this.  
 
 __nested-route :__ As this file name, nested-route. See this.  
+```javascript
     {
         path: '/contacts', component: Contacts,
         children: [
             { path: ':no', component: ContactByNo }
         ]
     }
+```
 This code go in to router part. At '/contacts', '/contacts/:no' is added. And in Contacts component, <router-view> show ContactByNo component.  
 _!!Notice!!_ - Remember this code.  
+```javascript
     watch: {
         '$route': function(to, from) {
             this.no = to.params.no;
         }
     }
+```
 This code use $route in watch. It can make 'no' change.  
 
 __named-route :__ Give name to route and use programming route. For example, route looks like this,  
-route : { path: '/home', component: Home }  
-route-link : <router-link :to="/home">home</router-link>  
+route : `{ path: '/home', component: Home }`  
+route-link : `<router-link :to="/home">home</router-link>`  
 and named route is this,  
-route : { path: '/home', name: 'home', component: Home }  
-route-link : <router-link :to="{ name: 'home' }">home</router-link>  
-params : <router-link :to="{ name: 'home', params: { no: c.no } }">home</router-link>  
+route : `{ path: '/home', name: 'home', component: Home }`  
+route-link : `<router-link :to="{ name: 'home' }">home</router-link>`  
+params : `<router-link :to="{ name: 'home', params: { no: c.no } }">home</router-link>`  
 _!!Notice!!_ - Way to programming route.  
-simple : this.$route.push('/home');  
-object : this.$route.push({ path: "/home" });  
-name and params : this.$route.push({ name: "home", params: { no: c.no } });  
-object and query : this.$route.push({ path: "/home", query: { pageno: 1, pagesize: 5 } });  
+simple : `this.$route.push('/home');`  
+object : `this.$route.push({ path: "/home" });`  
+name and params : `this.$route.push({ name: "home", params: { no: c.no } });`  
+object and query : `this.$route.push({ path: "/home", query: { pageno: 1, pagesize: 5 } });`  
