@@ -107,3 +107,27 @@ simple : `this.$route.push('/home');`
 object : `this.$route.push({ path: "/home" });`  
 name and params : `this.$route.push({ name: "home", params: { no: c.no } });`  
 object and query : `this.$route.push({ path: "/home", query: { pageno: 1, pagesize: 5 } });`  
+
+__navigation-guard :__ Similar with component life cycle. This is code.
+1. Global
+```javascript
+router.beforeEach((to, from, next) => {
+    next();
+})
+router.afterEach((to, from, next) => {
+    next();
+})
+```
+2. In specific route
+```javascript
+{ 
+    path: "/something", component: Something,
+    beforeEnter: (to, from, next) => {
+        next();
+    }
+}
+```
+3. In component
+```javascript
+
+```
