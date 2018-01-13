@@ -129,5 +129,15 @@ router.afterEach((to, from, next) => {
 ```
 3. In component
 ```javascript
-
+export default {
+    beforeRouteEnter(to, from, next) {
+        next();
+    },
+    beforeRouteLeave(to, from, next) {
+        next();
+    },
+    beforeRouteUpdate(to, from, next) {
+        next();
+    }
+}
 ```
