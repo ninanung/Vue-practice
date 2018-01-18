@@ -143,3 +143,5 @@ export default {
 ```
 
 __routemode-routeprops :__ Practice how to change route mode, like 'history'. Should insert mode part in router object. In router, you can set props to make automatically give params to props in component. It is easy, just insert `props: true` in route object. And in component, set prop's name same with params.  
+
+__route-addressbook :__ 
