@@ -30,14 +30,19 @@
 
     export default {
         name: "updatePhoto",
-        computed: mapState([ 'contact' ]),
+        props: [ 'no' ],
+        computed: mapState([ 'contact', 'contactlist' ]),
+        mounted: function() {
+            this.$store.dispatch(constant.FETCH_CONTACT_CONE, { no: this.no });
+        },
         methods: {
             cancelEvent: function() {
-                this.$store.dispatch(constant.CANCEL_FORM);
+                this.$router.puah({ name: 'contacts', query: { page: this.contactlist.pageno } });
             },
             photoSubmit: function() {
                 let file = this.$refs.photofile.files[0];
                 this.$store.dispatch(constant.UPDATE_PHOTO, { no: this.contact.no, file: file });
+                this.$router.push({ name: 'contacts', query: { page: this.contactlist.pageno } });
             }
         }
     }

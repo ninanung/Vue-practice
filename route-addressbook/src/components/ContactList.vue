@@ -65,10 +65,10 @@
         ),
         mounted: function() {
             let page = 1;
-            if(this.$route.query && this.$route.query.page) {
+            if(this.$router.query && this.$route.query.page) {
                 page = parseInt(this.$route.query.page);
             }
-            this.$route.dispatch(constant.FETCH_CONTACTS, { pageno: page });
+            this.$router.dispatch(constant.FETCH_CONTACTS, { pageno: page });
             this.$refs.pagebuttons.selected = page - 1;
         },
         beforeRouteUpdate(to, from, next) {
@@ -81,15 +81,15 @@
         },
         methods: {
             pageChanged: function(page) {
-                this.$route.push({ name: "contacts", query: { page: page }});
+                this.$router.push({ name: "contacts", query: { page: page }});
             },
             editContact: function(no) {
-                this.$route.push({ name: "updatecontact", params: { no: no }});
+                this.$router.push({ name: "updatecontact", params: { no: no }});
             },
             deleteContact: function(no) {
                 if(confirm("REALLY WANT TO DELETE??????")) {
-                    this.$store(constant.DELETE_CONTACT, { no: no });
-                    this.$route.push({ name: 'contacts' });
+                    this.$store.dispatch(constant.DELETE_CONTACT, { no: no });
+                    this.$router.push({ name: 'contacts' });
                 }
             },
             editPhoto: function(no) {
