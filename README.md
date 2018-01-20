@@ -145,3 +145,5 @@ export default {
 __routemode-routeprops :__ Practice how to change route mode, like 'history'. Should insert mode part in router object. In router, you can set props to make automatically give params to props in component. It is easy, just insert `props: true` in route object. And in component, set prop's name same with params.  
 
 __route-addressbook :__ Same content with axios addressbook but made with vue-router. Use programming route, axios and store. Maybe this is some core project what i studied until now.  
+_!!Notice!!_ - Can make loading page like spinning circle in web. API or some long time work make people wait, but with just white page, users can't know this service is working or bugging. This page make people think "Oh, circle spinning mean loading. I will wait.", could be nice.  
+ 
