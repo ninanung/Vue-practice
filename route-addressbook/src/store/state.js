@@ -1,6 +1,7 @@
 import config from '../config.js';
 
 export default {
+    isloading: false,
     contact: {
         no: 0, name: "", tel: "", address: "", photo: "" 
     },

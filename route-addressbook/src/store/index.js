@@ -8,7 +8,7 @@ import actions from './actions.js';
 Vue.use(Vuex);
 ES6promise.polyfill();
 
-const store = new Vuex.store({
+const store = new Vuex.Store({
     state,
     mutations,
     actions

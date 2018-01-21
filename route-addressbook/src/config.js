@@ -2,7 +2,7 @@ const BASE_URL = "http://sample.bmaster.kro.kr";
 
 export default {
     PAGESIZE: 5,
-    FETCH: BASE_URL + "/contacts",
+    FETCH: BASE_URL + "/contacts_long",
     ADD: BASE_URL + "/contacts",
     UPDATE: BASE_URL + "/contacts/${no}",
     FETCH_ONE: BASE_URL + "/contacts/${no}",

@@ -5,5 +5,6 @@ export default {
     UPDATE_PHOTO: "updatePhoto",
     DELETE_CONTACT: "deleteContact",
     FETCH_CONTACT_ONE: "fetchContactOne",
-    INITIALIZE_CONTACT_ONE: "initializeContactOne"
+    INITIALIZE_CONTACT_ONE: "initializeContactOne",
+    CHANGE_ISLOADING: "changeIsLoading"
 }

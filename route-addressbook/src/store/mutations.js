@@ -9,5 +9,8 @@ export default {
     },
     [constant.FETCH_CONTACT_ONE]: (state, payload) => {
         state.contact = payload.contact;
+    },
+    [constant.CHANGE_ISLOADING]: (state, payload) => {
+        state.isloading = payload.isloading;
     }
 }

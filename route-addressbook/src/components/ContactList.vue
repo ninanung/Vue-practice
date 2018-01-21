@@ -47,19 +47,17 @@
 <script>
     import constant from '../constant.js';
     import { mapState } from 'vuex';
-    import Paginate from 'vuejs-pagenate';
+    import Paginate from 'vuejs-paginate';
     import _ from 'lodash';
 
     export default {
         name: 'contactList',
         components: { Paginate },
         computed: _.extend({
-                {
-                    totalpage: function() {
-                        const totalpage = this.contactlist.totalcount;
-                        const pagesize = this.contactlist.pagesize;
-                        return Math.floor((totalcount - 1) / pagesize) + 1;
-                    }
+                totalpage: function() {
+                    const totalpage = this.contactlist.totalcount;
+                    const pagesize = this.contactlist.pagesize;
+                    return Math.floor((totalcount - 1) / pagesize) + 1;
                 }
             }, mapState([ 'contactlist' ])
         ),

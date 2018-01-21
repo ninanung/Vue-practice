@@ -63,7 +63,7 @@
                 this.mode = "add";
                 this.$store.dispatch(constant.INITIALIZE_CONTACT_ONE);
             }
-            else if {cr.fullPath.indexOf('/update') > -1) {
+            else if (cr.fullPath.indexOf('/update') > -1) {
                 this.mode = "update";
                 this.$store.dispatch(constant.FETCH_CONTACT_ONE, { no: this.no }); 
             }

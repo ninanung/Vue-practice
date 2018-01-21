@@ -15,6 +15,6 @@
         padding: 0; position: relative; font: 13px "verdana";
     }
     .img {
-        widows: 800px; height: auto;
+        width: 800px; height: auto;
     }
 </style>
