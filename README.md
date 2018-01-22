@@ -146,3 +146,5 @@ __routemode-routeprops :__ Practice how to change route mode, like 'history'. Sh
 
 __route-addressbook :__ Same content with axios addressbook but made with vue-router. Use programming route, axios and store. Maybe this is some core project what i studied until now.  
 >> _!!Notice!!_ - Can make loading page like spinning circle in web. API or some long time work make people wait, but with just white page, users can't know this service is working or bugging. This page make people think "Oh, circle spinning mean loading. I will wait.", could be nice. One more thing, this is modal.  
+
+__transition-example :__ Transition is html animation speed control css part. Simply, it can control speed of movement.  
