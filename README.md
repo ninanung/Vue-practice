@@ -14,19 +14,19 @@ __v-on.html :__ Using v-on to control event. When click -> v-on:click or just @c
 __preventDefault.html :__ Learn how to control event more in detail. In 'a'tag, there's default click event and preventDefault() will block that.  
 >> _!!Notice!!_ - Not only preventDefault(), there's many other details. stopPropagation() will stop event propagation. Even use like this, @click.once.self.prevent.stop="mehodName"   
 
->> _!!Notice!!_ - Using with v-on:keyup : .enter, .tab, .delete, .esc, .space, .up, .down, .ctrl, .alt, .shift, .meta and .(keycode number)  
+>> _!!Notice!!_ - Using with `v-on:keyup : .enter, .tab, .delete, .esc, .space, .up, .down, .ctrl, .alt, .shift, .meta and .(keycode number)`  
 
 __inLineStyle.html :__ Inline style in Vue, make change with method.  
 __class.html :__ Change style by v-bind:class. In Vue obj, setting style using checkbox.  
 __styleExample.html :__ Make Todo List! with everything i got.  
 
->> _!!Notice!!_ - v-model.trim="something" delete whitespace.  
+>> _!!Notice!!_ - `v-model.trim="something"` delete whitespace.  
 
 __props.html :__ Practice how to toss props from parent component.  
 __propsAndAction.html :__ Practice using props and action in child, parent component. Using fetch for data.  
 __todoComponent.html :__ Doing same function with "styleExample.html" but made by Vue component. To make "component to component communication", use '$emit' and '$on'.  
 
->> _!!Notice!!_ - While coding todolist, i find out that i forgot 'v-bind:class="createdMethod()"'form can control class. It could be usful, so don't forget.  
+>> _!!Notice!!_ - While coding todolist, i find out that i forgot '`v-bind:class="createdMethod()"`'form can control class. It could be usful, so don't forget.  
 
 ## Webpack project form practice  
 
@@ -34,14 +34,14 @@ __webpacktest :__ Test file for webpack and package config. Practice how to set 
 __webpacktest2 :__ Made by 'vue-cli'module with 'webpack-simple'package for webpack and vue practice.  Just project file, no contents.  
 __component-example :__ Doing same function with "styleExample.html" and "todoComponent.html" but made by single file component.  
 
->> _!!Noice!!_ - If each component have same class name, just one style will applied. For prevent this, can use style tag like "<style scoped></style>". But if component have child component, scoped style affect to child. Remember this.  
->> _!!Notice!!_ - Also, can write style as a module like "<style module></style>", even can use like this "v-bind:class="$style.className"".  
+>> _!!Noice!!_ - If each component have same class name, just one style will applied. For prevent this, can use style tag like "`<style scoped></style>`". But if component have child component, scoped style affect to child. Remember this.  
+>> _!!Notice!!_ - Also, can write style as a module like "`<style module></style>`", even can use like this "`v-bind:class="$style.className"`".  
 
 __slottest :__ Practice for slot. Learn how to set slot in parent component.  
 __scopedslottest :__ Set v-bind:name="dataName" in child component slot, and parent component use scope="name" in slot. Can make control child's slot like "{{ name.dataName }}" in parent's slot.  
-__dynamic-componenttest :__ Use "<component :is="currentView"></component>" can show component that you want. "currentView" must be imported component's name. In this test, i make method to change components.  
+__dynamic-componenttest :__ Use "`<component :is="currentView"></component>`" can show component that you want. "currentView" must be imported component's name. In this test, i make method to change components.  
 
->> _!!Notice!!_ - In dynamic component, if component have name, can use <keep-alive include="component-name, other-component-name"></keep-alive> to set components.  
+>> _!!Notice!!_ - In dynamic component, if component have name, can use `<keep-alive include="component-name, other-component-name"></keep-alive>` to set components.  
 
 __recursive-componenttest :__ Like this file name, in child component's template, recursively call there own component. In parent component, give props to child as "array[ array[] ]" mean array in array form.  
 
@@ -71,7 +71,7 @@ __store-module :__ Second, module structure is devide modules as each file. Each
 __vuex-addressbook :__ Last practice project for Vuex module. Content is same with axiosAddressBook file but not eventbus -> store. So not much to talk about.  
 _!!Notice!!_ - In some components, i use v-model to change store's state directly. But this is not a good code. So first make change component's data and then do to state is right form. To block this, in index.js file's vuex objext write 'strict: true'.  
 
-__router-example :__ Vue-router practice webpack-simple project. Same content with dynamic component example but made by vue-router. I think it is similar with react.js router. <router-link> make <a> tag and <router-view> show component.  
+__router-example :__ Vue-router practice webpack-simple project. Same content with dynamic component example but made by vue-router. I think it is similar with react.js router. `<router-link>` make `<a>` tag and `<router-view>` show component.  
 
 __dynamic-route :__ Practice for dynamic routing. Simple content but should see "this.$route.params.something". This is way to use params, and in route, "route/to/dynamic/:number" use like this.  
 
@@ -145,4 +145,4 @@ export default {
 __routemode-routeprops :__ Practice how to change route mode, like 'history'. Should insert mode part in router object. In router, you can set props to make automatically give params to props in component. It is easy, just insert `props: true` in route object. And in component, set prop's name same with params.  
 
 __route-addressbook :__ Same content with axios addressbook but made with vue-router. Use programming route, axios and store. Maybe this is some core project what i studied until now.  
->> _!!Notice!!_ - Can make loading page like spinning circle in web. API or some long time work make people wait, but with just white page, users can't know this service is working or bugging. This page make people think "Oh, circle spinning mean loading. I will wait.", could be nice.  
+>> _!!Notice!!_ - Can make loading page like spinning circle in web. API or some long time work make people wait, but with just white page, users can't know this service is working or bugging. This page make people think "Oh, circle spinning mean loading. I will wait.", could be nice. One more thing, this is modal.  
