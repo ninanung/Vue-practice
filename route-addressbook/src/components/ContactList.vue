@@ -1,7 +1,7 @@
 <template>
     <div>
         <p class="addnew">
-            <router-link class="btn btn-primary" :to="{ name: 'addcontact' }">New Address</router-link>
+            <router-link class="btn btn-primary" v-bind:to="{ name: 'addcontact' }" >New Address</router-link>
         </p>
         <div id="example">
             <table id="list" class="table table-striped table-bordered table-hover">
@@ -57,7 +57,7 @@
                 totalpage: function() {
                     const totalpage = this.contactlist.totalcount;
                     const pagesize = this.contactlist.pagesize;
-                    return Math.floor((totalcount - 1) / pagesize) + 1;
+                    return Math.floor((totalpage - 1) / pagesize) + 1;
                 }
             }, mapState([ 'contactlist' ])
         ),
@@ -66,7 +66,7 @@
             if(this.$router.query && this.$route.query.page) {
                 page = parseInt(this.$route.query.page);
             }
-            this.$router.dispatch(constant.FETCH_CONTACTS, { pageno: page });
+            this.$store.dispatch(constant.FETCH_CONTACTS, { pageno: page });
             this.$refs.pagebuttons.selected = page - 1;
         },
         beforeRouteUpdate(to, from, next) {
@@ -91,7 +91,7 @@
                 }
             },
             editPhoto: function(no) {
-                this.$route.push({ name: "updatephoto", params: { no: no }});
+                this.$router.push({ name: "updatephoto", params: { no: no }});
             }
         }
     }

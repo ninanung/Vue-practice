@@ -57,6 +57,7 @@
             'contactlist', 'contact'
         ])),
         mounted: function() {
+            console.log("????")
             this.$refs.name.focus();
             let cr = this.$router.currentRoute;
             if(cr.fullPath.indexOf('/add') > -1) {

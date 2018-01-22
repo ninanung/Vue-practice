@@ -18,6 +18,7 @@ export default {
         contactapi.fetchContacts(pageno, pagesize)
         .then((res) => {
             store.commit(constant.FETCH_CONTACTS, { contactlist: res.data });
+            store.dispatch(constant.CHANGE_ISLOADING, { isloading: false });
         })
     },
     [constant.ADD_CONTACT]: (store) => {
@@ -65,6 +66,7 @@ export default {
         contactapi.fetchContactOne(payload.no) 
         .then((res) => {
             store.commit(constant.FETCH_CONTACT_ONE, { contact: res.data });
+            store.dispatch(constant.CHANGE_ISLOADING, { isloading: false });
         })
     },
     [constant.INITIALIZE_CONTACT_ONE]: (store) => {
