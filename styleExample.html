@@ -79,6 +79,19 @@
         .completed {
             text-decoration: none;
         }
+        .red {
+            background: red;
+        }
+        .blue {
+            background: blue;
+        }
+        .purple {
+            background: purple;
+        }
+        .black {
+            background: black;
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -95,11 +108,15 @@
                 <span class="close" @click.stop="deleteTodo(index)">&#x00D7;</span>
             </li>
         </ul>
+        <div class="test">
+            <button @click="color" :class="changeColor()">{{ colorcount }}</button>
+        </div>
     </div>
     <script>
         let styleExample = new Vue({
             el: "#todo",
             data: {
+                colorcount: 0,
                 todo: "",
                 todolist: [
                     { todo: "watching movie", done: false },
@@ -109,6 +126,29 @@
                 ]
             },
             methods: {
+                changeColor: function() {
+                    if(this.colorcount == 0) {
+                        return { red: true };
+                    }
+                    else if(this.colorcount == 1) {
+                        return { blue: true };
+                    }
+                    else if(this.colorcount == 2) {
+                        return { purple: true };
+                    }
+                    else if(this.colorcount == 3) {
+                        return { black: true };
+                    }
+                },
+                color: function() {
+                    if(this.colorcount == 3) {
+                        this.colorcount = 0;
+                    } 
+                    else {
+                        this.colorcount++;
+                    }
+                    console.log(this.colorcount);
+                },
                 check: function(done) {
                     if(done) {
                         return { checked: true };
