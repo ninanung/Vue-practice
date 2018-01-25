@@ -153,3 +153,4 @@ __transition-example :__ Transition is html animation speed control css part. Si
 
 ## Self test  
 
+__login-test :__ Login page practice with Router, Store. Simple but pretty hard. Just simple page.  
