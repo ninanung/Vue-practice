@@ -40,12 +40,13 @@ export default {
                 if (this.IDs[index].id == this.id && this.IDs[index].password == this.password) {
                     this.isWrong = false;
                     this.$store.dispatch(constant.LOGIN, { id: this.id, password: this.password  });
-                    this.$router.push({ name: 'home' });
+                    return this.$router.push({ name: 'home' });
                 }
             }
             this.isWrong = true;
             this.id = "";
             this.password = "";
+            return alert("Please check your ID and password");
         },
         cancel: function() {
             this.$router.push({ name: 'home' });
