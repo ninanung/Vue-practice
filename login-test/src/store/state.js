@@ -3,6 +3,6 @@ export default {
         { id: "mungje", password: "password" },
         { id: "ninanung", password: "1004nmnm" }
     ],
-    isLogin: false,
+    islogin: false,
     user: { id: "", password: "" }
 }

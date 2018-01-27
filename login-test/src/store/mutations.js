@@ -2,12 +2,12 @@ import constant from '../constant.js';
 
 export default {
     [constant.LOGIN]: (state, payload) => {
-        state.isLogin = true;
+        state.islogin = true;
         state.user.id = payload.id;
         state.user.password = payload.password;
     },
     [constant.LOGOUT]: (state) => {
-        state.isLogin = false;
+        state.islogin = false;
         state.user.id = "";
         state.user.password = "";
     },
@@ -16,8 +16,8 @@ export default {
             id: payload.id,
             password: payload.password
         });
-        state.isLogin = true;
+        state.islogin = true;
         state.user.id = payload.id;
-        state.user.password = payload.id;
+        state.user.password = payload.password;
     }
 }

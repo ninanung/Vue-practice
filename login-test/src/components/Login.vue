@@ -16,7 +16,6 @@
                 <button @click="cancel()">Cancel</button>
             </div>
         </div>
-        <h3 class="wrong" v-if="isWrong">Please, check your id or password.</h3> 
     </div>
 </template>
 

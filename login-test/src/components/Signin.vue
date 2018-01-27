@@ -47,6 +47,11 @@ export default {
                 return alert("ID must be longer then 3 digits");
             }
             else {
+                for(let index = 0; index < this.IDs.length; index++) {
+                    if(this.IDs[index].id == this.id) {
+                        return alert("Already same ID exist");
+                    }
+                }
                 this.$store.dispatch(constant.SIGNIN, { id: this.id, password: this.password });
                 this.id = "";
                 this.password = "";

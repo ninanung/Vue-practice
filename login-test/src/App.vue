@@ -5,10 +5,10 @@
             <nav>
                 <ul>
                     <li><router-link :to="{ name: 'home' }">Home</router-link></li>
-                    <li v-if="notlogin"><router-link :to="{ name: 'login' }">Login</router-link></li>
-                    <li v-if="notlogin"><router-link :to="{ name: 'signin' }">Signin</router-link></li>
+                    <li v-if="!islogin"><router-link :to="{ name: 'login' }">Login</router-link></li>
+                    <li v-if="!islogin"><router-link :to="{ name: 'signin' }">Signin</router-link></li>
                     <li><router-link :to="{ name: 'islogin' }">AmILogin?</router-link></li>
-                    <li v-if="islogin"><button @click="logout()">Logout</button></li>
+                    <li v-if="islogin"><a @click="logout()">Logout</a></li>
                 </ul>
             </nav>
         </div>
@@ -24,16 +24,6 @@ import constant from './constant.js';
 
 export default {
     name: 'app',
-    data: function() {
-        return {
-            notlogin: true
-        }
-    },
-    watch: {
-        islogin: function() {
-            notlogin = !islogin;
-        }
-    },
     computed: mapState([ 'islogin' ]),
     methods: {
         logout: function() {
