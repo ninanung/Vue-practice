@@ -13,7 +13,7 @@ export default {
         return {
             hello: ""
         }
-    }
+    },
     computed: mapState([ 'islogin', 'user' ]),
     mounted: function() {
         if(!this.islogin) {

@@ -26,14 +26,14 @@ export default {
     name: 'app',
     data: function() {
         return {
-            notlogin: true;
+            notlogin: true
         }
     },
     watch: {
         islogin: function() {
             notlogin = !islogin;
         }
-    }
+    },
     computed: mapState([ 'islogin' ]),
     methods: {
         logout: function() {
