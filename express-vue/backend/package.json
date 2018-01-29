@@ -1,0 +1,13 @@
+{
+    "version": "0.0.1",
+    "name": "express-vue",
+    "private": true,
+    "scripts": {
+        "start": "node app.js"
+    },
+    "dependencies": {
+        "body-parser": "^1.18.2",
+        "express": "^4.16.2",
+        "mongoose": "^5.0.2"
+    }
+}
