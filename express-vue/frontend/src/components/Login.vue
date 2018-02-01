@@ -22,6 +22,7 @@
 <script>
 import { mapState } from 'vuex';
 import constant from '../constant.js';
+import contactapi from '../contactapi.js';
 
 export default {
     name: "login",
@@ -38,7 +39,11 @@ export default {
             for (let index = 0; index < this.IDs.length; index++) {
                 if (this.IDs[index].id == this.id && this.IDs[index].password == this.password) {
                     this.isWrong = false;
-                    this.$store.dispatch(constant.LOGIN, { id: this.id, password: this.password  });
+                    contactapi.login(this.id, this.password)
+                    .then((res) => {
+                        console.log("Login - " + res.data.id + " " + res.data.password);
+                        this.$store.dispatch(constant.LOGIN, { id: res.data.id, password: res.data.password  });
+                    });
                     return this.$router.push({ name: 'home' });
                 }
             }

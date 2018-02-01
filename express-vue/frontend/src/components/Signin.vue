@@ -22,6 +22,7 @@
 <script>
 import { mapState } from 'vuex';
 import constant from '../constant.js';
+import contactapi from '../contactapi.js';
 
 export default {
     name: "login",
@@ -52,7 +53,11 @@ export default {
                         return alert("Already same ID exist");
                     }
                 }
-                this.$store.dispatch(constant.SIGNIN, { id: this.id, password: this.password });
+                contactapi.signin(this.id, this.password)
+                .then((res) => {
+                    console.log("Signin - " + res.data.id + " " + res.data.password);
+                    this.$store.dispatch(constant.SIGNIN, { id: res.data.id, password: res.data.password });
+                });
                 this.id = "";
                 this.password = "";
                 return this.$router.push({ name: 'home' });
