@@ -154,6 +154,8 @@ __transition-example :__ Transition is html animation speed control css part. Si
 ## Self test  
 
 __login-test :__ Login page practice with Router, Store. Simple but pretty hard. Just simple page.  
+
 __express-vue :__ Use vue frontend in express server backend. I don't know how to use DB in webpack server so, i should use express that i used to. Then, how to use? Funny thing is, use node server as api. Yes, use axios and express router make some change. After that, `res.send(somedata)`give data to vue.  
+_!!Notice!!_ - It is little hard to make post with axios. BodyParser don't work in express. More data is needed.  
 
 # I hope this is end of practice. Next is real web service project!!!  
