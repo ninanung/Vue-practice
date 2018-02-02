@@ -48,19 +48,28 @@ export default {
                 return alert("ID must be longer then 3 digits");
             }
             else {
-                for(let index = 0; index < this.IDs.length; index++) {
-                    if(this.IDs[index].id == this.id) {
-                        return alert("Already same ID exist");
-                    }
-                }
+                let words = "";
+                let error;
                 contactapi.signin(this.id, this.password)
                 .then((res) => {
-                    console.log("Signin - " + res.data.id + " " + res.data.password);
-                    this.$store.dispatch(constant.SIGNIN, { id: res.data.id, password: res.data.password });
+                    words = res.data.words;
+                    error = res.data.error;
+                    if(res.data.error) {
+                        console.log(words);
+                    }
+                    else {
+                        console.log(res.data);
+                    }
                 });
-                this.id = "";
-                this.password = "";
-                return this.$router.push({ name: 'home' });
+                if(error == "true") {
+                    this.$store.dispatch(constant.SIGNIN, { id: this.id, password: this.password });
+                    this.id = "";
+                    this.password = "";
+                    return this.$router.push({ name: 'home' });
+                }
+                else {
+                    return alert(words);
+                }
             }
         },
         cancel: function() {

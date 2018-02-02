@@ -30,27 +30,28 @@ export default {
         return {
             id: "",
             password: "",
-            isWrong: false
         }
     },
     computed: mapState([ "IDs" ]),
     methods: {
         login: function() {
-            for (let index = 0; index < this.IDs.length; index++) {
-                if (this.IDs[index].id == this.id && this.IDs[index].password == this.password) {
-                    this.isWrong = false;
-                    contactapi.login(this.id, this.password)
-                    .then((res) => {
-                        console.log("Login - " + res.data.id + " " + res.data.password);
-                        this.$store.dispatch(constant.LOGIN, { id: res.data.id, password: res.data.password  });
-                    });
-                    return this.$router.push({ name: 'home' });
-                }
+            let words = "";
+            let error;
+            contactapi.login(this.id, this.password)
+            .then((res) => {
+                error = res.data.error;
+                words = res.data.words;
+                console.log(res.data);
+            });
+            if(error == "true") {
+                this.$store.dispatch(constant.LOGIN, { id: this.id, password: this.password });
+                this.id = "";
+                this.password = "";
+                return this.$router.push({ name: "home" });
             }
-            this.isWrong = true;
-            this.id = "";
-            this.password = "";
-            return alert("Please check your ID and password");
+            else {
+                return alert("Please check your ID and password");
+            }
         },
         cancel: function() {
             this.$router.push({ name: 'home' });
