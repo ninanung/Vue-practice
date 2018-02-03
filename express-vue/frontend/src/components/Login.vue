@@ -5,11 +5,11 @@
             <hr>
             <div class="input">
                 <label>ID</label>
-                <input class="id" type="text" v-model="id" placeholder="ID" />
+                <input @keyup.esc="cancel" @keyup.enter="login" class="id" type="text" v-model="id" placeholder="ID" autofocus />
             </div>
             <div class="input">
                 <label>Password</label>
-                <input class="password" type="text" v-model="password" placeholder="Password" /> 
+                <input @keyup.esc="cancel" @keyup.enter="login" class="password" type="text" v-model="password" placeholder="Password" /> 
             </div>
             <div class="input">
                 <button @click="login()">Login</button>

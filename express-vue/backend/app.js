@@ -15,8 +15,10 @@ app.use('/', index);
 app.use('/api/login', login);
 app.use('/api/signin', signin);
 
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.set("port", process.env.PORT || 3000);
+app.use(express.static(path.join(__dirname, 'public')));
 
 http.listen(app.get("port"), function() {
     console.log("server start in " + app.get("port"));
