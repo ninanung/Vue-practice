@@ -9,7 +9,7 @@
             </div>
             <div class="input">
                 <label>Password</label>
-                <input @keyup.esc="cancel" @keyup.enter="signin()" class="password" type="text" v-model="password" placeholder="Password" /> 
+                <input @keyup.esc="cancel" @keyup.enter="signin()" class="password" type="password" v-model="password" placeholder="Password" /> 
             </div>
             <div class="input">
                 <button @click="signin()">Signin</button>
