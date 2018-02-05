@@ -42,16 +42,17 @@ export default {
                 error = res.data.error;
                 words = res.data.words;
                 console.log(res.data);
+                if(error === "false") {
+                    this.$store.dispatch(constant.LOGIN, { id: this.id, password: this.password });
+                    this.id = "";
+                    this.password = "";
+                    console.log("get login");
+                    return this.$router.push({ name: "home" });
+                }
+                else {
+                    return alert("Please check your ID and password");
+                }
             });
-            if(error == "true") {
-                this.$store.dispatch(constant.LOGIN, { id: this.id, password: this.password });
-                this.id = "";
-                this.password = "";
-                return this.$router.push({ name: "home" });
-            }
-            else {
-                return alert("Please check your ID and password");
-            }
         },
         cancel: function() {
             this.$router.push({ name: 'home' });

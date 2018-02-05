@@ -54,22 +54,23 @@ export default {
                 .then((res) => {
                     words = res.data.words;
                     error = res.data.error;
-                    if(res.data.error) {
+                    if(res.data.error == "true") {
                         console.log(words);
                     }
                     else {
                         console.log(res.data);
                     }
+                    if(error == "false") {
+                        this.$store.dispatch(constant.SIGNIN, { id: this.id, password: this.password });
+                        this.id = "";
+                        this.password = "";
+                        console.log("get signin");
+                        return this.$router.push({ name: 'home' });
+                    }
+                    else {
+                        return alert(words);
+                    }
                 });
-                if(error == "true") {
-                    this.$store.dispatch(constant.SIGNIN, { id: this.id, password: this.password });
-                    this.id = "";
-                    this.password = "";
-                    return this.$router.push({ name: 'home' });
-                }
-                else {
-                    return alert(words);
-                }
             }
         },
         cancel: function() {

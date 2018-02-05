@@ -26,10 +26,11 @@ router.post("/", function(req, res, next) {
             id: id,
             password: password
         });
-        newUser.save(function(err) {
+        newUser.save(function(err) {    
             if(err) {
                 info.error = "true";
                 info.words = "Unknown Error Come Out.";
+                console.log(err);
                 return res.send(info);
             }
             info.id = id;
