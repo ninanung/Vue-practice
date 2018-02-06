@@ -168,6 +168,6 @@ In frontend, this is needed.
 index: path.resolve(__dirname, '../../backend/public/index.html'),
 assetsRoot: path.resolve(__dirname, '../../backend/public'),
 ```
-_!!Notice!!_ - Before import 'routes', middleware must be setted. If not, can use middlewares in 'routes'.  
+_!!Notice!!_ - Before import 'routes', middleware must be setted. If not, can't use middlewares in 'routes'.  
 
 # I hope this is end of practice. Next is real web service project!!!  
