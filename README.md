@@ -169,5 +169,6 @@ index: path.resolve(__dirname, '../../backend/public/index.html'),
 assetsRoot: path.resolve(__dirname, '../../backend/public'),
 ```
 _!!Notice!!_ - Before import 'routes', middleware must be setted. If not, can't use middlewares in 'routes'.  
+_!!Notice!!_ - Actually, this is not a best way to route. Cause in web, you can't route by url. localhost will let you access but url make 404 error. I think some other way needed.  
 
 # I hope this is end of practice. Next is real web service project!!!  
